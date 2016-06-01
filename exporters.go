@@ -1,6 +1,7 @@
 package text
 
 import "strings"
+import "strconv"
 
 /*
  * Casts / Export Utilities to various types
@@ -27,4 +28,16 @@ func (t Text) ToLines() []string {
 // ToString returns a plain string type
 func (t Text) ToString() string {
 	return string(t)
+}
+
+// ToInt casts the text to an int value if possible
+func (t Text) ToInt() int {
+	i, _ := strconv.Atoi(t.ToString())
+	return i
+}
+
+// ToFloat casts the text to a float64 value if possible
+func (t Text) ToFloat() float64 {
+	f, _ := strconv.ParseFloat(t.ToString(), 64)
+	return f
 }

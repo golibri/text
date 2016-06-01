@@ -39,6 +39,8 @@ func TestImportersExporters(t *testing.T) {
 	equal(New(l).ToLines()[2], "cool", "ToLines() error", t)
 	s := "gopher"
 	equal(FromString(s).ToString(), s, "FromString() error", t)
+	equal(New("17").ToInt(), 17, "ToInt() error", t)
+	equal(New("17.3").ToFloat(), float64(17.3), "ToFloat() error", t)
 }
 
 func TestIterators(t *testing.T) {
