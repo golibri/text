@@ -1,0 +1,76 @@
+# Golibri/text
+
+This package is a thin wrapper over the built-in `string` type and provides several methods for transformations
+
+API from ruby:
+
+- [x] ascii_only?
+- [x] bytes
+- [x] bytesize
+- [x] capitalize
+- [x] chars
+- [x] count
+- [ ] delete
+- [ ] downcase
+- [ ] dump
+- [ ] each_byte
+- [ ] each_char
+- [ ] each_codepoint
+- [ ] each_line
+- [x] empty?
+- [x] end_with?
+- [ ] eql?
+- [ ] force_encoding
+- [ ] freeze
+- [ ] getbyte
+- [ ] gsub
+- [ ] hash
+- [ ] hex
+- [ ] include?
+- [ ] index
+- [ ] initialize_copy
+- [ ] insert
+- [ ] inspect
+- [ ] intern
+- [x] length
+- [ ] lines
+- [ ] ljust
+- [ ] lstrip
+- [ ] lstrip!
+- [ ] match
+- [ ] next
+- [ ] oct
+- [ ] ord
+- [ ] partition
+- [ ] prepend
+- [x] replace
+- [x] reverse
+- [ ] rindex
+- [ ] rjust
+- [ ] rpartition
+- [ ] rstrip
+- [ ] scan
+- [ ] scrub
+- [ ] setbyte
+- [ ] slice
+- [x] split
+- [ ] squeeze
+- [x] start_with?
+- [ ] strip
+- [ ] sub
+- [ ] succ
+- [ ] sum
+- [ ] swapcase
+- [ ] to_c
+- [ ] to_f
+- [ ] to_i
+- [ ] to_r
+- [x] to_s
+- [x] to_str
+- [ ] to_sym
+- [ ] tr
+- [ ] tr_s
+- [ ] unpack
+- [ ] upcase
+- [ ] upto
+- [ ] valid_encoding?
