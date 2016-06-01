@@ -8,7 +8,7 @@ import "regexp"
 type Text string
 
 /*
- * unclassified methods
+ * unclassified methods, useful stuff
  */
 
 // SplitString splits the string on every occurence of a given pattern

@@ -12,6 +12,11 @@ func (t Text) Capitalize() Text {
 	return New(strings.Title(string(t)))
 }
 
+// Downcase lowercases all characters in the string
+func (t Text) Downcase() Text {
+	return New(strings.ToLower(t.ToString()))
+}
+
 // ReplaceString replaces all occurences of `old` with `new`
 func (t Text) ReplaceString(old string, new string) Text {
 	return Text(strings.Replace(t.ToString(), old, new, -1))
@@ -31,4 +36,9 @@ func (t Text) Reverse() Text {
 		result[length-i-1] = chars[i]
 	}
 	return Text(strings.Join(result, ""))
+}
+
+// Upcase replaces every character in the string with its uppercase variant
+func (t Text) Upcase() Text {
+	return New(strings.ToUpper(t.ToString()))
 }
