@@ -18,14 +18,9 @@ Inspiration: Ruby's String class:
 - [x] each_line
 - [x] empty?
 - [x] end_with?
-- [ ] eql?
-- [ ] force_encoding
-- [ ] freeze
-- [ ] getbyte
+- [x] eql?
 - [x] gsub
-- [ ] hash
-- [ ] hex
-- [ ] include?
+- [x] include?
 - [ ] index
 - [ ] insert
 - [ ] inspect
@@ -34,7 +29,7 @@ Inspiration: Ruby's String class:
 - [x] lines
 - [ ] ljust
 - [x] lstrip
-- [ ] match
+- [x] match
 - [ ] next
 - [ ] oct
 - [ ] ord

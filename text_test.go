@@ -14,8 +14,14 @@ func TestMethods(t *testing.T) {
 
 func TestChecks(t *testing.T) {
 	txt := Text("gopher")
+	truth(txt.DoesContainString("he"), "DoesContainString() truth", t)
+	untruth(txt.DoesContainString("stuff"), "DoesContainString() untruth", t)
+	truth(txt.DoesMatchPattern("[ph]"), "DoesMatchPattern() truth", t)
+	untruth(txt.DoesMatchPattern(`\d`), "DoesMatchPattern() untruth", t)
 	truth(txt.EndsWith("er"), "EndsWith() truth", t)
 	untruth(txt.EndsWith("stuff"), "EndsWith() untruth", t)
+	truth(txt.IsEqual("gopher"), "IsEqual() truth", t)
+	untruth(txt.IsEqual("nogopher"), "IsEqual() untruth", t)
 	truth(txt.IsASCIIOnly(), "IsAsciiOnly() truth", t)
 	untruth(New("hören").IsASCIIOnly(), "IsAsciiOnly() untruth", t)
 	truth(New("").IsEmpty(), "IsEmpty() truth", t)
