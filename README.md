@@ -31,7 +31,7 @@ Inspiration: Ruby's String class:
 - [x] reverse
 - [x] rjust
 - [x] rstrip
-- [ ] slice
+- [x] slice
 - [x] split
 - [x] start_with?
 - [x] strip
@@ -40,6 +40,4 @@ Inspiration: Ruby's String class:
 - [x] to_i
 - [x] to_s
 - [x] to_str
-- [ ] tr
-- [ ] tr_s
 - [x] upcase

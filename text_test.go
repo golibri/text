@@ -101,6 +101,8 @@ func TestTransformations(t *testing.T) {
 	equal(txt.DeleteString("pher"), Text("go"), "DeleteString() error", t)
 	equal(txt.DeletePattern("[ph]"), Text("goer"), "DeletePattern() error", t)
 
+	equal(txt.Capitalize().Downcase(), Text("gopher"), "Downcase() error", t)
+
 	equal(txt.First(-1), Text(""), "First() error", t)
 	equal(txt.First(2), Text("go"), "First() error", t)
 	equal(txt.First(20), Text("gopher"), "First() error", t)
@@ -114,7 +116,7 @@ func TestTransformations(t *testing.T) {
 
 	equal(txt.Reverse(), Text("rehpog"), "Reverse() error", t)
 
-	equal(txt.Capitalize().Downcase(), Text("gopher"), "Downcase() error", t)
+	equal(txt.Slice(3, 5), New("her"), "Slice() error", t)
 
 	equal(txt.Upcase(), Text("GOPHER"), "Upcase() error", t)
 }

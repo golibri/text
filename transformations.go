@@ -76,6 +76,11 @@ func (t Text) Reverse() Text {
 	return Text(strings.Join(result, ""))
 }
 
+// Slice cuts out a substring from char `from` to (incl) char `to`
+func (t Text) Slice(from int, to int) Text {
+	return FromChars(t.ToChars()[from : to+1])
+}
+
 // Upcase replaces every character in the string with its uppercase variant
 func (t Text) Upcase() Text {
 	return New(strings.ToUpper(t.ToString()))
