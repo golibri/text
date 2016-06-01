@@ -2,8 +2,6 @@ package text
 
 import "testing"
 
-var testWord = `Gopher`
-
 func TestMethods(t *testing.T) {
 	txt := Text("gopher")
 	equal(len(txt.ToBytes()), 6, "Bytes() error", t)
@@ -14,18 +12,25 @@ func TestMethods(t *testing.T) {
 
 func TestChecks(t *testing.T) {
 	txt := Text("gopher")
+
 	truth(txt.DoesContainString("he"), "DoesContainString() truth", t)
 	untruth(txt.DoesContainString("stuff"), "DoesContainString() untruth", t)
+
 	truth(txt.DoesMatchPattern("[ph]"), "DoesMatchPattern() truth", t)
 	untruth(txt.DoesMatchPattern(`\d`), "DoesMatchPattern() untruth", t)
+
 	truth(txt.EndsWith("er"), "EndsWith() truth", t)
 	untruth(txt.EndsWith("stuff"), "EndsWith() untruth", t)
+
 	truth(txt.IsEqual("gopher"), "IsEqual() truth", t)
 	untruth(txt.IsEqual("nogopher"), "IsEqual() untruth", t)
+
 	truth(txt.IsASCIIOnly(), "IsAsciiOnly() truth", t)
 	untruth(New("hören").IsASCIIOnly(), "IsAsciiOnly() untruth", t)
+
 	truth(New("").IsEmpty(), "IsEmpty() truth", t)
 	untruth(txt.IsEmpty(), "IsEmpty() untruth", t)
+
 	truth(txt.StartsWith("go"), "StartsWith() truth", t)
 	untruth(txt.StartsWith("stuff"), "StartsWith() untruth", t)
 }
@@ -63,6 +68,21 @@ func TestIterators(t *testing.T) {
 		ls = append(ls, l)
 	})
 	equal(txt.ToLines()[0], ls[0], "EachLine() error", t)
+
+	equal(txt.MapLines(func(l string) string {
+		return "a"
+	}), New("a\na\na"), "MapChars() error", t)
+
+	txt = New("gopher")
+
+	equal(txt.MapBytes(func(b byte) byte {
+		return b + 1
+	}), New("hpqifs"), "MapBytes() error", t)
+
+	equal(txt.MapChars(func(c string) string {
+		return c + " "
+	}), New("g o p h e r "), "MapChars() error", t)
+
 }
 
 func TestMetrics(t *testing.T) {
@@ -74,21 +94,39 @@ func TestMetrics(t *testing.T) {
 
 func TestTransformations(t *testing.T) {
 	txt := Text("gopher")
+
 	equal(txt.Capitalize(), Text("Gopher"), "Capitalize() error", t)
+
 	equal(txt.DeleteString("pher"), Text("go"), "DeleteString() error", t)
 	equal(txt.DeletePattern("[ph]"), Text("goer"), "DeletePattern() error", t)
+
+	equal(txt.First(-1), Text(""), "First() error", t)
 	equal(txt.First(2), Text("go"), "First() error", t)
+	equal(txt.First(20), Text("gopher"), "First() error", t)
+
+	equal(txt.Last(-1), Text(""), "Last() error", t)
 	equal(txt.Last(2), Text("er"), "Last() error", t)
-	equal(txt.LeftPad(3), Text("   gopher"), "LeftPad() error", t)
-	equal(txt.LeftJust(10), Text("    gopher"), "LeftJust() error", t)
+	equal(txt.Last(20), Text("gopher"), "Last() error", t)
+
 	equal(txt.ReplaceString("o", "a"), Text("gapher"), "ReplaceString() error", t)
 	equal(txt.ReplacePattern("[oe]", "a"), Text("gaphar"), "ReplacePattern() error", t)
+
 	equal(txt.Reverse(), Text("rehpog"), "Reverse() error", t)
+
+	equal(txt.Capitalize().Downcase(), Text("gopher"), "Downcase() error", t)
+
+	equal(txt.Upcase(), Text("GOPHER"), "Upcase() error", t)
+}
+
+func TestTransformationsFormatting(t *testing.T) {
+	txt := Text("gopher")
+	equal(txt.LeftPad(3), Text("   gopher"), "LeftPad() error", t)
+	equal(txt.LeftJust(-1), Text("gopher"), "LeftJust() error", t)
+	equal(txt.LeftJust(10), Text("    gopher"), "LeftJust() error", t)
 	equal(txt.RightPad(3), Text("gopher   "), "RightPad() error", t)
+	equal(txt.RightJust(-1), Text("gopher"), "RightJust() error", t)
 	equal(txt.RightJust(10), Text("gopher    "), "RightJust() error", t)
 	equal(txt.RightPad(3), Text("gopher   "), "RightPad() error", t)
-	equal(txt.Capitalize().Downcase(), Text("gopher"), "Downcase() error", t)
-	equal(txt.Upcase(), Text("GOPHER"), "Upcase() error", t)
 	equal(New("   hello\r\n").Strip(), Text("hello"), "Strip() error", t)
 }
 
