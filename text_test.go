@@ -133,6 +133,11 @@ func TestTransformationsFormatting(t *testing.T) {
 	equal(New("   hello\r\n").Strip(), Text("hello"), "Strip() error", t)
 }
 
+func TestTransformationsWeb(t *testing.T) {
+	equal(New("<b>hallo").EscapeHTML(), New("&lt;b&gt;hallo"), "EscapeHTML() error", t)
+	equal(New("&lt;b&gt;hallo").UnescapeHTML(), New("<b>hallo"), "UnescapeHTML() error", t)
+}
+
 /*
  * test helper functions to reduce boilerplate
  */
