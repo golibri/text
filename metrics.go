@@ -16,6 +16,11 @@ func (t Text) Count(phrase string) int {
 	return strings.Count(t.ToString(), phrase)
 }
 
+// Index finds the first occurence of the given string in the text, or -1
+func (t Text) Index(seq string) int {
+	return strings.Index(t.ToString(), seq)
+}
+
 // Length returns the number of characters of the string
 func (t Text) Length() int {
 	return len(t.ToChars())

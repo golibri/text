@@ -89,6 +89,7 @@ func TestMetrics(t *testing.T) {
 	txt := Text("gopher")
 	equal(txt.ByteSize(), 6, "ByteSize() error", t)
 	equal(txt.Count("o"), 1, "Count() error", t)
+	equal(txt.Index("h"), 3, "Index() error", t)
 	equal(txt.Length(), 6, "Length() error", t)
 }
 

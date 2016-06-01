@@ -21,10 +21,7 @@ Inspiration: Ruby's String class:
 - [x] eql?
 - [x] gsub
 - [x] include?
-- [ ] index
-- [ ] insert
-- [ ] inspect
-- [ ] intern
+- [x] index
 - [x] length
 - [x] lines
 - [x] ljust
