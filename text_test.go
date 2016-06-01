@@ -25,19 +25,43 @@ func TestChecks(t *testing.T) {
 }
 
 func TestImportersExporters(t *testing.T) {
-	s := "gopher"
-	equal(FromString(s).ToString(), s, "FromString() error", t)
 	b := []byte("gopher")
 	equal(FromBytes(b).ToBytes()[0], b[0], "FromBytes() error", t)
 	c := []string{"g", "o", "p", "h", "e", "r"}
 	equal(FromChars(c).ToChars()[0], c[0], "FromChars() error", t)
+	l := "go\nis\r\ncool"
+	equal(New(l).ToLines()[2], "cool", "ToLines() error", t)
+	s := "gopher"
+	equal(FromString(s).ToString(), s, "FromString() error", t)
+}
+
+func TestIterators(t *testing.T) {
+	txt := New("Go\nis simple\nhöhö")
+
+	bs := []byte{}
+	txt.EachByte(func(b byte) {
+		bs = append(bs, b)
+	})
+	equal(txt.ToBytes()[0], bs[0], "EachByte() error", t)
+
+	cs := []string{}
+	txt.EachChar(func(c string) {
+		cs = append(cs, c)
+	})
+	equal(txt.ToChars()[0], cs[0], "EachChar() error", t)
+
+	ls := []string{}
+	txt.EachLine(func(l string) {
+		ls = append(ls, l)
+	})
+	equal(txt.ToLines()[0], ls[0], "EachLine() error", t)
 }
 
 func TestMetrics(t *testing.T) {
 	txt := Text("gopher")
 	equal(txt.ByteSize(), 6, "ByteSize() error", t)
-	equal(txt.Count("o"), 1, "ByteSize() error", t)
-	equal(txt.Length(), 6, "ByteSize() error", t)
+	equal(txt.Count("o"), 1, "Count() error", t)
+	equal(txt.Length(), 6, "Length() error", t)
 }
 
 func TestTransformations(t *testing.T) {

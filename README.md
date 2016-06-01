@@ -1,8 +1,9 @@
 # Golibri/text
 
-This package is a thin wrapper over the built-in `string` type and provides several methods for transformations
+This package is a thin wrapper over the built-in `string` type and provides several methods for one would expect from strings. Transformations are chainable, convenience checks work
+consistently and unicode characters are respected. The methods use Go's stdlib functions wherever possible, wrapping them in a programmer-friendly way.
 
-API from ruby:
+Inspiration: Ruby's String class:
 
 - [x] ascii_only?
 - [x] bytes
@@ -13,10 +14,9 @@ API from ruby:
 - [ ] delete
 - [ ] downcase
 - [ ] dump
-- [ ] each_byte
-- [ ] each_char
-- [ ] each_codepoint
-- [ ] each_line
+- [x] each_byte
+- [x] each_char
+- [x] each_line
 - [x] empty?
 - [x] end_with?
 - [ ] eql?
@@ -28,12 +28,11 @@ API from ruby:
 - [ ] hex
 - [ ] include?
 - [ ] index
-- [ ] initialize_copy
 - [ ] insert
 - [ ] inspect
 - [ ] intern
 - [x] length
-- [ ] lines
+- [x] lines
 - [ ] ljust
 - [ ] lstrip
 - [ ] lstrip!
