@@ -72,6 +72,7 @@ func TestTransformations(t *testing.T) {
 	equal(txt.Reverse(), Text("rehpog"), "Reverse() error", t)
 	equal(txt.Capitalize().Downcase(), Text("gopher"), "Downcase() error", t)
 	equal(txt.Upcase(), Text("GOPHER"), "Upcase() error", t)
+	equal(New("   hello\r\n").Strip(), Text("hello"), "Strip() error", t)
 }
 
 /*

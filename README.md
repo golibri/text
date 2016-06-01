@@ -12,8 +12,7 @@ Inspiration: Ruby's String class:
 - [x] chars
 - [x] count
 - [ ] delete
-- [ ] downcase
-- [ ] dump
+- [x] downcase
 - [x] each_byte
 - [x] each_char
 - [x] each_line
@@ -23,7 +22,7 @@ Inspiration: Ruby's String class:
 - [ ] force_encoding
 - [ ] freeze
 - [ ] getbyte
-- [ ] gsub
+- [x] gsub
 - [ ] hash
 - [ ] hex
 - [ ] include?
@@ -34,8 +33,7 @@ Inspiration: Ruby's String class:
 - [x] length
 - [x] lines
 - [ ] ljust
-- [ ] lstrip
-- [ ] lstrip!
+- [x] lstrip
 - [ ] match
 - [ ] next
 - [ ] oct
@@ -47,7 +45,7 @@ Inspiration: Ruby's String class:
 - [ ] rindex
 - [ ] rjust
 - [ ] rpartition
-- [ ] rstrip
+- [x] rstrip
 - [ ] scan
 - [ ] scrub
 - [ ] setbyte
@@ -55,8 +53,8 @@ Inspiration: Ruby's String class:
 - [x] split
 - [ ] squeeze
 - [x] start_with?
-- [ ] strip
-- [ ] sub
+- [x] strip
+- [x] sub
 - [ ] succ
 - [ ] sum
 - [ ] swapcase
@@ -70,6 +68,6 @@ Inspiration: Ruby's String class:
 - [ ] tr
 - [ ] tr_s
 - [ ] unpack
-- [ ] upcase
+- [x] upcase
 - [ ] upto
 - [ ] valid_encoding?

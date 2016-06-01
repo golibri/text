@@ -38,6 +38,21 @@ func (t Text) Reverse() Text {
 	return Text(strings.Join(result, ""))
 }
 
+// Strip removes all whitespace at the beginning and end of the string
+func (t Text) Strip() Text {
+	return t.StripLeft().StripRight()
+}
+
+// StripLeft removes all whitespace at the beginning of the string
+func (t Text) StripLeft() Text {
+	return t.ReplacePattern(`^\s+`, "")
+}
+
+// StripRight removes all whitespace at the end of the string
+func (t Text) StripRight() Text {
+	return t.ReplacePattern(`\s+$`, "")
+}
+
 // Upcase replaces every character in the string with its uppercase variant
 func (t Text) Upcase() Text {
 	return New(strings.ToUpper(t.ToString()))
