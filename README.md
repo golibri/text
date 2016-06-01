@@ -11,7 +11,7 @@ Inspiration: Ruby's String class:
 - [x] capitalize
 - [x] chars
 - [x] count
-- [ ] delete
+- [x] delete
 - [x] downcase
 - [x] each_byte
 - [x] each_char
@@ -27,7 +27,7 @@ Inspiration: Ruby's String class:
 - [ ] intern
 - [x] length
 - [x] lines
-- [ ] ljust
+- [x] ljust
 - [x] lstrip
 - [x] match
 - [ ] next
@@ -38,7 +38,7 @@ Inspiration: Ruby's String class:
 - [x] replace
 - [x] reverse
 - [ ] rindex
-- [ ] rjust
+- [x] rjust
 - [ ] rpartition
 - [x] rstrip
 - [ ] scan
