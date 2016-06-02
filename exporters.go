@@ -1,7 +1,9 @@
 package text
 
-import "strings"
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 /*
  * Casts / Export Utilities to various types
